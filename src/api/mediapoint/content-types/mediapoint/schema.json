@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mediapoints",
+  "info": {
+    "singularName": "mediapoint",
+    "pluralName": "mediapoints",
+    "displayName": "Mediapoint"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "introVideo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
