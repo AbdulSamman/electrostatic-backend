@@ -519,33 +519,6 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiMediaPointMediaPoint extends Struct.CollectionTypeSchema {
-  collectionName: 'media_points';
-  info: {
-    displayName: 'MediaPoint';
-    pluralName: 'media-points';
-    singularName: 'media-point';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::media-point.media-point'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiMediapointMediapoint extends Struct.CollectionTypeSchema {
   collectionName: 'mediapoints';
   info: {
@@ -1129,7 +1102,6 @@ declare module '@strapi/strapi' {
       'api::buildsummary.buildsummary': ApiBuildsummaryBuildsummary;
       'api::cart.cart': ApiCartCart;
       'api::category.category': ApiCategoryCategory;
-      'api::media-point.media-point': ApiMediaPointMediaPoint;
       'api::mediapoint.mediapoint': ApiMediapointMediapoint;
       'api::product.product': ApiProductProduct;
       'plugin::content-releases.release': PluginContentReleasesRelease;
