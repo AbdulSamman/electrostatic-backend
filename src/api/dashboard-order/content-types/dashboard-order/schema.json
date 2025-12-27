@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "dashboards",
+  "collectionName": "dashboard_orders",
   "info": {
-    "singularName": "dashboard",
-    "pluralName": "dashboards",
-    "displayName": "Dashboard"
+    "singularName": "dashboard-order",
+    "pluralName": "dashboard-orders",
+    "displayName": "DashboardOrder"
   },
   "options": {
     "draftAndPublish": true
@@ -14,11 +14,11 @@
     "userId": {
       "type": "string"
     },
-    "email": {
-      "type": "email"
-    },
     "userName": {
       "type": "string"
+    },
+    "email": {
+      "type": "email"
     },
     "items": {
       "type": "json"

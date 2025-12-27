@@ -519,12 +519,13 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiDashboardDashboard extends Struct.CollectionTypeSchema {
-  collectionName: 'dashboards';
+export interface ApiDashboardOrderDashboardOrder
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'dashboard_orders';
   info: {
-    displayName: 'Dashboard';
-    pluralName: 'dashboards';
-    singularName: 'dashboard';
+    displayName: 'DashboardOrder';
+    pluralName: 'dashboard-orders';
+    singularName: 'dashboard-order';
   };
   options: {
     draftAndPublish: true;
@@ -538,7 +539,7 @@ export interface ApiDashboardDashboard extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::dashboard.dashboard'
+      'api::dashboard-order.dashboard-order'
     > &
       Schema.Attribute.Private;
     orderStatus: Schema.Attribute.Enumeration<
@@ -1168,7 +1169,7 @@ declare module '@strapi/strapi' {
       'api::buildsummary.buildsummary': ApiBuildsummaryBuildsummary;
       'api::cart.cart': ApiCartCart;
       'api::category.category': ApiCategoryCategory;
-      'api::dashboard.dashboard': ApiDashboardDashboard;
+      'api::dashboard-order.dashboard-order': ApiDashboardOrderDashboardOrder;
       'api::mediapoint.mediapoint': ApiMediapointMediapoint;
       'api::product.product': ApiProductProduct;
       'api::sectionimage.sectionimage': ApiSectionimageSectionimage;
