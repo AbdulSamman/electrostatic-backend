@@ -519,6 +519,41 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiDashboardDashboard extends Struct.CollectionTypeSchema {
+  collectionName: 'dashboards';
+  info: {
+    displayName: 'Dashboard';
+    pluralName: 'dashboards';
+    singularName: 'dashboard';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email;
+    items: Schema.Attribute.JSON;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::dashboard.dashboard'
+    > &
+      Schema.Attribute.Private;
+    orderStatus: Schema.Attribute.Enumeration<
+      ['pending', 'submitted', 'processed']
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    totalPrice: Schema.Attribute.Decimal;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    userId: Schema.Attribute.String;
+    userName: Schema.Attribute.String;
+  };
+}
+
 export interface ApiMediapointMediapoint extends Struct.CollectionTypeSchema {
   collectionName: 'mediapoints';
   info: {
@@ -1133,6 +1168,7 @@ declare module '@strapi/strapi' {
       'api::buildsummary.buildsummary': ApiBuildsummaryBuildsummary;
       'api::cart.cart': ApiCartCart;
       'api::category.category': ApiCategoryCategory;
+      'api::dashboard.dashboard': ApiDashboardDashboard;
       'api::mediapoint.mediapoint': ApiMediapointMediapoint;
       'api::product.product': ApiProductProduct;
       'api::sectionimage.sectionimage': ApiSectionimageSectionimage;
