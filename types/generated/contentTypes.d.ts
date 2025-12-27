@@ -469,7 +469,7 @@ export interface ApiCartCart extends Struct.CollectionTypeSchema {
     singularName: 'cart';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
