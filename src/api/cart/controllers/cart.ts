@@ -23,6 +23,7 @@ export default factories.createCoreController(
             })),
           },
         });
+        console.log("res");
 
         return newCart;
       } catch (err) {
