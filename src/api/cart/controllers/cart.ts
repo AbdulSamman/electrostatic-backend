@@ -1,37 +1,3 @@
-// import { factories } from "@strapi/strapi";
-
-// export default factories.createCoreController(
-//   "api::cart.cart",
-//   ({ strapi }) => ({
-//     async create(ctx) {
-//       try {
-//         // Daten aus dem Request holen
-//         const { userName, email, products } = ctx.request.body.data;
-
-//         // Numeric IDs für Relation extrahieren
-//         const productIds = products.map((p: any) => p.id);
-
-//         const newCart = await strapi.db.query("api::cart.cart").create({
-//           data: {
-//             userName,
-//             email,
-//             products: productIds, // Relation korrekt speichern
-//             selectedOptions: products.map((p: any) => ({
-//               id: p.id,
-//               qty: p.qty ?? 1,
-//               selectedOptions: p.selectedOptions ?? [],
-//             })),
-//           },
-//         });
-
-//         return newCart;
-//       } catch (err) {
-//         ctx.throw(500, err);
-//       }
-//     },
-//   })
-// );
-
 import { factories } from "@strapi/strapi";
 
 export default factories.createCoreController(
@@ -78,7 +44,9 @@ export default factories.createCoreController(
               email,
               orderStatus: orderStatus || "pending",
               items: items.map((i: any) => ({
-                id: i.product.id,
+                title: i.product.title,
+                bannerUrl: i.product.banner?.url ?? null,
+                price: i.product.price,
                 qty: i.qty ?? 1,
                 selectedOptions: i.selectedOptions ?? [],
               })),
@@ -102,14 +70,9 @@ export default factories.createCoreController(
     // Dashboard-Orders abrufen
     async getDashboard(ctx) {
       try {
-        const orders = await strapi.db
-          .query("api::dashboard.dashboard")
-          .findMany({
-            populate: ["items", "items.product"],
-            orderBy: { createdAt: "desc" },
-          });
-
-        return orders;
+        return await strapi.db.query("api::dashboard.dashboard").findMany({
+          orderBy: { createdAt: "desc" },
+        });
       } catch (err) {
         ctx.throw(500, err);
       }
