@@ -609,6 +609,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       true
     >;
     instantDelivery: Schema.Attribute.Boolean;
+    lieferStatus: Schema.Attribute.Enumeration<['sofort', 'vorbestellung']>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
