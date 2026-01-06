@@ -57,8 +57,8 @@
     "lieferStatus": {
       "type": "enumeration",
       "enum": [
-        "sofort",
-        "vorbestellung"
+        "Sofort",
+        "Vorbestellung"
       ]
     }
   }
