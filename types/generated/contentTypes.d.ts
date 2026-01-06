@@ -598,7 +598,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   attributes: {
     banner: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     category: Schema.Attribute.Enumeration<
-      ['Loudspeaker', 'Turntable', 'Amplifier', 'Speaker Cable']
+      ['Loudspeaker', 'Turntable', 'Amplifier', 'Speaker Cable ']
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
