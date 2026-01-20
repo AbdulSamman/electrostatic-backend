@@ -61,6 +61,12 @@
         "Sofort",
         "Vorbestellung"
       ]
+    },
+    "dashboard_orders": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::dashboard-order.dashboard-order",
+      "mappedBy": "products"
     }
   }
 }

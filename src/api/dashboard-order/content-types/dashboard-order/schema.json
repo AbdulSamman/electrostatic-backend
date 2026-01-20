@@ -33,6 +33,12 @@
         "submitted",
         "processed"
       ]
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "inversedBy": "dashboard_orders"
     }
   }
 }

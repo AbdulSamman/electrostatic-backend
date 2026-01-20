@@ -545,6 +545,7 @@ export interface ApiDashboardOrderDashboardOrder
     orderStatus: Schema.Attribute.Enumeration<
       ['pending', 'submitted', 'processed']
     >;
+    products: Schema.Attribute.Relation<'manyToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
     totalPrice: Schema.Attribute.Decimal;
     updatedAt: Schema.Attribute.DateTime;
@@ -603,6 +604,10 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    dashboard_orders: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::dashboard-order.dashboard-order'
+    >;
     description: Schema.Attribute.Blocks;
     files: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
