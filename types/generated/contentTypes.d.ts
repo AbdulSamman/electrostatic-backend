@@ -531,6 +531,7 @@ export interface ApiDashboardOrderDashboardOrder
     draftAndPublish: true;
   };
   attributes: {
+    address: Schema.Attribute.JSON;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
