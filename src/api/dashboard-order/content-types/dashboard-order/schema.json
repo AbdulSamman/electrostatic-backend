@@ -30,8 +30,8 @@
       "type": "enumeration",
       "enum": [
         "pending",
-        "submitted",
-        "processed"
+        "processing",
+        "completed"
       ]
     },
     "products": {
