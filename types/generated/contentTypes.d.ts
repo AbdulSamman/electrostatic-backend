@@ -543,9 +543,7 @@ export interface ApiDashboardOrderDashboardOrder
       'api::dashboard-order.dashboard-order'
     > &
       Schema.Attribute.Private;
-    orderStatus: Schema.Attribute.Enumeration<
-      ['pending', 'processing', 'completed']
-    >;
+    orderStatus: Schema.Attribute.Enumeration<['new', 'process', 'finished']>;
     products: Schema.Attribute.Relation<'manyToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
     totalPrice: Schema.Attribute.Decimal;

@@ -29,9 +29,9 @@
     "orderStatus": {
       "type": "enumeration",
       "enum": [
-        "pending",
-        "processing",
-        "completed"
+        "new",
+        "process",
+        "finished"
       ]
     },
     "products": {
