@@ -42,6 +42,12 @@
     },
     "address": {
       "type": "json"
+    },
+    "customerNumber": {
+      "type": "string"
+    },
+    "orderNumber": {
+      "type": "string"
     }
   }
 }

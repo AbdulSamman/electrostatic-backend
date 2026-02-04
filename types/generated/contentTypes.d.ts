@@ -535,6 +535,7 @@ export interface ApiDashboardOrderDashboardOrder
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    customerNumber: Schema.Attribute.String;
     email: Schema.Attribute.Email;
     items: Schema.Attribute.JSON;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -543,6 +544,7 @@ export interface ApiDashboardOrderDashboardOrder
       'api::dashboard-order.dashboard-order'
     > &
       Schema.Attribute.Private;
+    orderNumber: Schema.Attribute.String;
     orderStatus: Schema.Attribute.Enumeration<['new', 'process', 'finished']>;
     products: Schema.Attribute.Relation<'manyToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
